@@ -42,5 +42,12 @@ namespace WindowsWatchdog.Test.WindowsService
                 memoryChunk[i] = 0xFF;
             }
         }
+
+#if DEBUG
+        public void OnDebug()
+        {
+            OnStart(null);
+        }
+#endif
     }
 }

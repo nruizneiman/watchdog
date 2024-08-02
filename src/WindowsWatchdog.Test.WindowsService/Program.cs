@@ -14,12 +14,23 @@ namespace WindowsWatchdog.Test.WindowsService
         /// </summary>
         static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            if (!Environment.UserInteractive)
             {
+                // Startup as service.
+                ServiceBase[] ServicesToRun;
+                ServicesToRun = new ServiceBase[]
+                {
                 new MemoryHogService()
-            };
-            ServiceBase.Run(ServicesToRun);
+                };
+                ServiceBase.Run(ServicesToRun);
+            }
+            else
+            {
+                // Startup as application
+                var service = new MemoryHogService();
+                service.OnDebug();
+                System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
+            }
         }
     }
 }

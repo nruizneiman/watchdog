@@ -19,10 +19,22 @@ namespace WindowsWatchdog
 
         protected override void OnStart(string[] args)
         {
+            //// Prompt to attach debugger
+            //if (!Debugger.IsAttached)
+            //{
+            //    Debugger.Launch();
+            //}
         }
 
         protected override void OnStop()
         {
         }
+
+#if DEBUG
+        public void OnDebug()
+        {
+            OnStart(null);
+        }
+#endif
     }
 }

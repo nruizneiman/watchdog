@@ -14,12 +14,23 @@ namespace WindowsWatchdog
         /// </summary>
         static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            if (!Environment.UserInteractive)
             {
+                // Startup as service.
+                ServiceBase[] ServicesToRun;
+                ServicesToRun = new ServiceBase[]
+                {
                 new Service1()
-            };
-            ServiceBase.Run(ServicesToRun);
+                };
+                ServiceBase.Run(ServicesToRun);
+            }
+            else
+            {
+                // Startup as application
+                var service = new Service1();
+                service.OnDebug();
+                System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
+            }
         }
     }
 }

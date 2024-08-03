@@ -1,0 +1,29 @@
+{
+  "agentname": "wd-vm-001-dev",
+  "monitors": {
+    "memory": [
+      {
+        "item-type": "Service",
+        "item-name": "WindowsWatchdog.Test.WindowsService",
+        "memory-threshold": "1073741824"
+      },
+      {
+        "item-type": "Process",
+        "item-name": "WindowsWatchdog.Test.ConsoleApp",
+        "memory-threshold": "716800"
+      }
+    ],
+    "status": [
+      {
+        "item-type": "Service",
+        "item-name": "WindowsWatchdog.Test.WindowsService",
+        "keep": "Running"
+      },
+      {
+        "item-type": "IIS-Site",
+        "item-name": "DefaultSite",
+        "keep": "Online"
+      }
+    ]
+  }
+}

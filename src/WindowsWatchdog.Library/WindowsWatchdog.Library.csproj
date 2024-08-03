@@ -194,6 +194,10 @@
   <ItemGroup>
     <Compile Include="Handlers\IISManager.cs" />
     <Compile Include="Handlers\ProcessManager.cs" />
+    <Compile Include="Interfaces\IServiceMonitor.cs" />
+    <Compile Include="Logic\MonitorManager.cs" />
+    <Compile Include="Monitors\MemoryMonitor.cs" />
+    <Compile Include="Monitors\ServiceStatusMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Handlers\WindowsServiceManager.cs" />
   </ItemGroup>
@@ -201,5 +205,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

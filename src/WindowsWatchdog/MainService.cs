@@ -8,9 +8,9 @@ using WindowsWatchdog.Config;
 
 namespace WindowsWatchdog
 {
-    public partial class Service1 : ServiceBase
+    public partial class MainService : ServiceBase
     {
-        public Service1()
+        public MainService()
         {
             InitializeComponent();
         }

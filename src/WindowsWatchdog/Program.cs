@@ -20,14 +20,14 @@ namespace WindowsWatchdog
                 ServiceBase[] ServicesToRun;
                 ServicesToRun = new ServiceBase[]
                 {
-                new Service1()
+                new MainService()
                 };
                 ServiceBase.Run(ServicesToRun);
             }
             else
             {
                 // Startup as application
-                var service = new Service1();
+                var service = new MainService();
                 service.OnDebug();
                 System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
             }

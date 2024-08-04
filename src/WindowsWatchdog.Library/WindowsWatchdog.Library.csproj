@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Administration, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Administration.11.1.0\lib\netstandard1.5\Microsoft.Web.Administration.dll</HintPath>
     </Reference>
@@ -192,9 +195,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\Configuration.cs" />
     <Compile Include="Handlers\IISManager.cs" />
     <Compile Include="Handlers\ProcessManager.cs" />
     <Compile Include="Interfaces\IServiceMonitor.cs" />
+    <Compile Include="Logic\ConfigLogic.cs" />
     <Compile Include="Logic\MonitorManager.cs" />
     <Compile Include="Monitors\MemoryMonitor.cs" />
     <Compile Include="Monitors\ServiceStatusMonitor.cs" />

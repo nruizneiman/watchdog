@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace WindowsWatchdog.Config
+namespace WindowsWatchdog.Library.Config
 {
     public class Configuration
     {
@@ -24,7 +24,7 @@ namespace WindowsWatchdog.Config
     public abstract class Item
     {
         [JsonProperty("item-type")]
-        public string ItemType { get; set; }
+        public ItemType ItemType { get; set; }
 
         [JsonProperty("item-name")]
         public string ItemName { get; set; }
@@ -40,5 +40,12 @@ namespace WindowsWatchdog.Config
     {
         [JsonProperty("keep")]
         public string Keep { get; set; }
+    }
+
+    public enum ItemType
+    {
+        Service,
+        Process,
+        IISSite
     }
 }

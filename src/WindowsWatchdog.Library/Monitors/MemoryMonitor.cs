@@ -1,12 +1,15 @@
 ﻿using WindowsService.Library.Interfaces;
+using WindowsWatchdog.Library.Config;
 
 namespace WindowsService.Library.Monitors
 {
     public class MemoryMonitor : IServiceMonitor
     {
-        public MemoryMonitor()
-        {
+        private Configuration _config;
 
+        public MemoryMonitor(Configuration config)
+        {
+            _config = config;
         }
 
         public void Monitor()

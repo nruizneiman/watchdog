@@ -9,7 +9,7 @@ namespace WindowsService.Library.Monitors
 {
     public class ServiceStatusMonitor : IServiceMonitor
     {
-        private Configuration _config;
+        private readonly Configuration _config;
         private readonly WindowsServiceManager _wsm;
 
         public ServiceStatusMonitor(Configuration config)
@@ -21,22 +21,21 @@ namespace WindowsService.Library.Monitors
         public async Task Monitor()
         {
             var itemsToHandle = _config.Monitors.Status;
-            while (true)
+            Parallel.ForEach(itemsToHandle, item =>
             {
-                foreach (var item in itemsToHandle)
+                switch (item.ItemType)
                 {
-                    switch (item.ItemType)
-                    {
-                        case ItemType.Service:
-                            HandleServiceStatus(item);
-                            break;
-                        case ItemType.Process:
-                            break;
-                        case ItemType.IISSite:
-                            break;
-                    }
+                    case ItemType.Service:
+                        HandleServiceStatus(item);
+                        break;
+                    case ItemType.Process:
+                        // Handle process status if needed
+                        break;
+                    case ItemType.IISSite:
+                        // Handle IIS site status if needed
+                        break;
                 }
-            }
+            });
         }
 
         private void HandleServiceStatus(Status item)

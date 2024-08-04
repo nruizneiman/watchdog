@@ -6,7 +6,7 @@ namespace WindowsService.Library.Monitors
 {
     public class MemoryMonitor : IServiceMonitor
     {
-        private Configuration _config;
+        private readonly Configuration _config;
 
         public MemoryMonitor(Configuration config)
         {

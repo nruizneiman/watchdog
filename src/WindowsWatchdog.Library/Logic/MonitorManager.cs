@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using WindowsService.Library.Interfaces;
 
 namespace WindowsService.Library.Logic
@@ -19,9 +21,14 @@ namespace WindowsService.Library.Logic
 
         public void StartMonitoring()
         {
-            foreach (var monitor in _monitors)
+            while (true)
             {
-                monitor.Monitor();
+                Parallel.ForEach(_monitors, async monitor =>
+                {
+                    await monitor.Monitor();
+                });
+
+                Thread.Sleep(3000);
             }
         }
     }

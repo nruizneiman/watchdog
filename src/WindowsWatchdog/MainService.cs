@@ -2,8 +2,6 @@
 using System;
 using System.IO;
 using System.ServiceProcess;
-using WindowsService.Library.Logic;
-using WindowsService.Library.Monitors;
 using WindowsWatchdog.Config;
 
 namespace WindowsWatchdog

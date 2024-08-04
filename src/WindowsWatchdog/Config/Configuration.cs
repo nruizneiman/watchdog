@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace WindowsWatchdog.Config
 {
@@ -22,26 +21,23 @@ namespace WindowsWatchdog.Config
         public List<Status> Status { get; set; }
     }
 
-    public class Memory
+    public abstract class Item
     {
         [JsonProperty("item-type")]
         public string ItemType { get; set; }
 
         [JsonProperty("item-name")]
         public string ItemName { get; set; }
+    }
 
+    public class Memory : Item
+    {
         [JsonProperty("memory-threshold")]
         public string MemoryThreshold { get; set; }
     }
 
-    public class Status
+    public class Status : Item
     {
-        [JsonProperty("item-type")]
-        public string ItemType { get; set; }
-
-        [JsonProperty("item-name")]
-        public string ItemName { get; set; }
-
         [JsonProperty("keep")]
         public string Keep { get; set; }
     }

@@ -1,7 +1,9 @@
-﻿namespace WindowsService.Library.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace WindowsService.Library.Interfaces
 {
     public interface IServiceMonitor
     {
-        void Monitor();
+        Task Monitor();
     }
 }

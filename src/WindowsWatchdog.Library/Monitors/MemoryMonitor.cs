@@ -1,4 +1,5 @@
-﻿using WindowsService.Library.Interfaces;
+﻿using System.Threading.Tasks;
+using WindowsService.Library.Interfaces;
 using WindowsWatchdog.Library.Config;
 
 namespace WindowsService.Library.Monitors
@@ -12,7 +13,7 @@ namespace WindowsService.Library.Monitors
             _config = config;
         }
 
-        public void Monitor()
+        public async Task Monitor()
         {
             
         }
